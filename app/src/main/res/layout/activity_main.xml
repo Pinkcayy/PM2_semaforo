@@ -17,12 +17,20 @@
 
         <ImageView
             android:id="@+id/ivSemaforo"
-            android:layout_width="246dp"
-            android:layout_height="240dp"
-            android:layout_marginBottom="50dp"
+            android:layout_width="169dp"
+            android:layout_height="152dp"
             android:layout_gravity="center"
             android:layout_marginTop="200dp"
-            app:srcCompat="@drawable/circulo_rojo" />
+            android:layout_marginBottom="25dp"
+            app:srcCompat="@drawable/circulo_gris" />
+
+        <ImageView
+            android:id="@+id/ivSemaforo2"
+            android:layout_width="168dp"
+            android:layout_height="151dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            app:srcCompat="@drawable/circulo_gris" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnComenzar"
