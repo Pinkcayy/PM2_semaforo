@@ -20,12 +20,20 @@
             android:layout_width="169dp"
             android:layout_height="152dp"
             android:layout_gravity="center"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="25dp"
             app:srcCompat="@drawable/circulo_gris" />
 
         <ImageView
             android:id="@+id/ivSemaforo2"
+            android:layout_width="168dp"
+            android:layout_height="151dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            app:srcCompat="@drawable/circulo_gris" />
+
+        <ImageView
+            android:id="@+id/ivSemaforo3"
             android:layout_width="168dp"
             android:layout_height="151dp"
             android:layout_gravity="center"

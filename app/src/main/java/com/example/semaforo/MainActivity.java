@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     Button btnComenzar;
-    ImageView ivSemaforo, ivSemaforo2;
+    ImageView ivSemaforo, ivSemaforo2, ivSemaforo3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         btnComenzar = findViewById(R.id.btnComenzar);
         ivSemaforo = findViewById(R.id.ivSemaforo);
         ivSemaforo2 = findViewById(R.id.ivSemaforo2);
+        ivSemaforo3 = findViewById(R.id.ivSemaforo3);
 
         btnComenzar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,19 +28,34 @@ public class MainActivity extends AppCompatActivity {
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        int[] ciclo = new int[]{
-                                R.drawable.circulo_rojo,
-                                R.drawable.circulo_amarillo,
-                                R.drawable.circulo_verde
-                        };
 
                         for (int i = 0; i < 3; i++) {
-                            int res = ciclo[i % ciclo.length];
+                            int estado = i % 3;
 
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ivSemaforo.setImageResource(res);
+                                    switch (estado) {
+                                        case 0:
+                                            ivSemaforo.setImageResource(R.drawable.circulo_rojo);
+                                            ivSemaforo2.setImageResource(R.drawable.circulo_gris);
+                                            ivSemaforo3.setImageResource(R.drawable.circulo_gris);
+                                            break;
+                                        case 1:
+                                            ivSemaforo.setImageResource(R.drawable.circulo_gris);
+                                            ivSemaforo2.setImageResource(R.drawable.circulo_amarillo);
+                                            ivSemaforo3.setImageResource(R.drawable.circulo_gris);
+                                            break;
+                                        case 2:
+                                            ivSemaforo.setImageResource(R.drawable.circulo_gris);
+                                            ivSemaforo2.setImageResource(R.drawable.circulo_gris);
+                                            ivSemaforo3.setImageResource(R.drawable.circulo_verde);
+                                            break;
+                                        default:
+                                            ivSemaforo.setImageResource(R.drawable.circulo_gris);
+                                            ivSemaforo2.setImageResource(R.drawable.circulo_gris);
+                                            ivSemaforo3.setImageResource(R.drawable.circulo_gris);
+                                    }
                                 }
                             });
 
@@ -52,35 +68,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 thread.start();
-
-                Thread thread2 = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        int[] ciclo = new int[]{
-                                R.drawable.circulo_verde,
-                                R.drawable.circulo_amarillo,
-                                R.drawable.circulo_rojo
-                        };
-
-                        for (int i = 0; i < 3; i++) {
-                            int res = ciclo[i % ciclo.length];
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    ivSemaforo2.setImageResource(res);
-                                }
-                            });
-
-                            try {
-                                Thread.sleep(5000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
-                thread2.start();
             }
         });
     }
