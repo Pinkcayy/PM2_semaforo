@@ -26,46 +26,30 @@ public class MainActivity extends AppCompatActivity {
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        int[] ciclo = new int[]{
+                                R.drawable.circulo_rojo,
+                                R.drawable.circulo_amarillo,
+                                R.drawable.circulo_verde
+                        };
+
+                        for (int i = 0; i < 3; i++) {
+                            int res = ciclo[i % ciclo.length];
+
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ivSemaforo.setImageResource(R.drawable.circulo_rojo);
+                                    ivSemaforo.setImageResource(res);
                                 }
                             });
-                        try {
-                            Thread.sleep(5000);
-                        }
-                        catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
 
-                Thread thread2 = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(5000);
-                        }
-                        catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                ivSemaforo.setImageResource(R.drawable.circulo_gris);
+                            try {
+                                Thread.sleep(5000);
+                            } catch (InterruptedException ignored) {
                             }
-                        });
-                        try {
-                            Thread.sleep(5000);
-                        }
-                        catch (InterruptedException e) {
-                            e.printStackTrace();
                         }
                     }
                 });
                 thread.start();
-                thread2.start();
             }
         });
     }

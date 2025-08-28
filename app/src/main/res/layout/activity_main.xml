@@ -13,23 +13,25 @@
         android:layout_height="729dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        android:gravity="center">
+        tools:layout_editor_absoluteY="1dp">
 
         <ImageView
             android:id="@+id/ivSemaforo"
-            android:layout_width="260dp"
-            android:layout_height="258dp"
-            app:srcCompat="@drawable/circulo_rojo"
-            android:layout_marginBottom="50dp"/>
+            android:layout_width="246dp"
+            android:layout_height="240dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            app:srcCompat="@drawable/circulo_rojo" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnComenzar"
-            android:layout_width="365dp"
-            android:layout_height="67dp"
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
             android:text="Comenzar"
             android:textColor="#000000"
-            android:textSize="24sp"
-            android:background="@color/white"/>
+            android:textSize="24sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
